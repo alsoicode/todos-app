@@ -2,16 +2,16 @@ from django.contrib.auth.models import User
 from django.db import models
 
 
-class UncompletedTodoManager(models.Manager):
-    def get_query_set(self):
-        return super(UncompletedTodoManager, self).get_query_set().filter(
-            completed_on__isnull=True)
-
-
 class CompletedTodoManager(models.Manager):
     def get_query_set(self):
         return super(CompletedTodoManager, self).get_query_set().filter(
             completed_on__isnull=False)
+
+
+class UncompletedTodoManager(models.Manager):
+    def get_query_set(self):
+        return super(UncompletedTodoManager, self).get_query_set().filter(
+            completed_on__isnull=True)
 
 
 class Todo(models.Model):
@@ -21,8 +21,8 @@ class Todo(models.Model):
     completed_on = models.DateTimeField(blank=True, null=True)
 
     objects = models.Manager()
-    uncomplete = UncompletedTodoManager()
     complete = CompletedTodoManager()
+    uncomplete = UncompletedTodoManager()
 
     def __unicode__(self):
         return self.title

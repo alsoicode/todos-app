@@ -1,40 +1,57 @@
 <!doctype html>
 {% load static from staticfiles %}
+{% load widget_tweaks %}
 <html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Django • TodoMVT</title>
-    <link rel="stylesheet" href="{% static 'css/base.css' %}">
-    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
-        <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2/html5shiv.js"></script>
-    <![endif]-->
-</head>
-<body>
-    <section id="todoapp">
-        <header id="header">
-            <h1>todos</h1>
-            <input id="new-todo" placeholder="What needs to be done?" autofocus>
-        </header>
-        <section id="main">
-            <input id="toggle-all" type="checkbox">
-            <label for="toggle-all">Mark all as complete</label>
-            <ul id="todo-list"></ul>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Django • TodoMVT</title>
+        <link rel="stylesheet" href="{% static 'css/base.css' %}">
+        <link rel="stylesheet" href="{% static 'css/app.css' %}">
+        <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+        <!--[if lt IE 9]>
+            <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2/html5shiv.js"></script>
+        <![endif]-->
+    </head>
+    <body>
+        <section id="todoapp">
+            <header id="header">
+                <h1>todos</h1>
+                <form id="new-todo-form" action="{% url 'add_todo' %}" method="post" enctype="application/x-www-form-urlencoded">
+                    <fieldset>
+                        {{ form.title|attr:"autofocus"|attr:"placeholder:What needs to be done?" }}
+                        {% csrf_token %}
+                    </fieldset>
+                </form>
+            </header>
+            <section id="main">
+                <input id="toggle-all" type="checkbox" style="{% if not todos %}display: none;{% endif %}">
+                <label for="toggle-all">Mark all as complete</label>
+                <ul id="todo-list">
+                    {% for todo in todos %}
+                    <li>
+                        <a href="#">{{ todo }}</a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </section>
+            <footer id="footer">
+                <div style="{% if not todos %}display: none;{% endif %}">
+                    <span id="todo-count"></span>
+                    <button id="clear-completed">Clear completed</button>
+                </div>
+            </footer>
         </section>
-        <footer id="footer">
-            <span id="todo-count"></span>
-            <button id="clear-completed">Clear completed</button>
+        <footer id="info">
+            <p>Double-click to edit a todo</p>
+            <p>Template by <a href="http://github.com/sindresorhus">Sindre Sorhus</a></p>
+            <p>Created by <a href="http://twitter.com/ffesseler">Florian Fesseler</a></p>
+            <p>Cleanup, edits by <a href="http://github.com/boushley">Aaron Boushley</a></p>
+            <p>Django app by <a href="http://github.com/btaylordesign">Brandon Taylor</a></p>
         </footer>
-    </section>
-    <footer id="info">
-        <p>Double-click to edit a todo</p>
-        <p>Template by <a href="http://github.com/sindresorhus">Sindre Sorhus</a></p>
-        <p>Created by <a href="http://twitter.com/ffesseler">Florian Fesseler</a></p>
-        <p>Cleanup, edits by <a href="http://github.com/boushley">Aaron Boushley</a></p>
-        <p>Django app by <a href="http://github.com/btaylordesign">Brandon Taylor</a></p>
-    </footer>
-    <!--script src="../../assets/base.js"></script>
-    <script src="js/app.js"></script-->
-</body>
+        <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script type="text/javascript" src="{% static 'js/jquery.form.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/ajax-forms.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/app.js' %}"></script>
+    </body>
 </html>
