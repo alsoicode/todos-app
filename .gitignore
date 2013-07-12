@@ -1,2 +1,4 @@
 *.sublime-*
-db
+.codeintel
+.ropeproject
+db/todos.sqlite
