@@ -1,4 +1,6 @@
 *.sublime-*
+*.py[c|o]
 .codeintel
 .ropeproject
 db/todos.sqlite
+todos_app/local_settings.py
