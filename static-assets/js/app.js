@@ -27,12 +27,14 @@
             }
         });
 
+        // toggle if todo is complete
         $('.toggle').live('click', function(e) {
             var target = $(e.target);
             target.parents('li:first').toggleClass('completed');
             $.post(complete_todo_url, {'id': target.val()});
         });
 
+        // delete any completed toods
         $('#clear-completed').click(function(e) {
             e.preventDefault();
             $.post(clear_completed_url, function(json) {
@@ -47,6 +49,7 @@
             });
         });
 
+        // toggle all of the todos
         $('#toggle-all').click(function(e) {
             $('.toggle').trigger('click');
         });
@@ -56,6 +59,7 @@
         return $('#todo-list li').length;
     }
 
+    // show/hide any elements that are related to the count of todos
     function toggle_clear_select_all() {
         var clear_completed = $('#footer div'),
             toggle_all_todos = $('#toggle-all');
