@@ -11,6 +11,8 @@ class TodoForm(AjaxModelForm):
     def __init__(self, *args, **kwargs):
         self.user = kwargs.pop('user')
         super(TodoForm, self).__init__(*args, **kwargs)
+        self.fields['title'].error_messages = {
+            'required': "Sorry, I don't know what you want to do."}
 
     def save(self, force_insert=False, force_update=False, commit=True):
         instance = super(TodoForm, self).save(commit=False)

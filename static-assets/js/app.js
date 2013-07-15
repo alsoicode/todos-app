@@ -1,7 +1,6 @@
 (function($) {
     $(function() {
-        // handle submitting the form via Ajax using the jQuery
-        // form plugin
+        // handle submitting the form via Ajax using the jQuery form plugin
 
         $('#new-todo-form').ajaxForm({
             dataType: 'json',
@@ -21,7 +20,7 @@
 
                     $('#todo-list').append('<li><div class="view"><input class="toggle" type="checkbox" value="' + json.id + '" /><label>' + json.title + '</label></div><input type="text" value="' + json.title + '" style="display: none;" /></li>');
 
-                    toggle_footer_links();
+                    toggle_clear_select_all();
                     remove_form_errors();
                     form.resetForm();
                 }
@@ -43,14 +42,31 @@
                         $(this).parents('li:first').remove();
                     }
                 });
-            }, 'json');
+            }, 'json').done(function() {
+                toggle_clear_select_all();
+            });
+        });
+
+        $('#toggle-all').click(function(e) {
+            $('.toggle').trigger('click');
         });
     });
 
-    function toggle_footer_links() {
-        var todos_length = $('#todo-list li').length;
-        if (todos_length > 0) {
-            $('#footer div').toggle();
+    function count_todos() {
+        return $('#todo-list li').length;
+    }
+
+    function toggle_clear_select_all() {
+        var clear_completed = $('#footer div'),
+            toggle_all_todos = $('#toggle-all');
+
+        if (count_todos() > 0) {
+            clear_completed.show();
+            toggle_all_todos.show();
         }
-    };
+        else {
+            clear_completed.hide();
+            toggle_all_todos.hide();
+        }
+    }
 })(jQuery);
