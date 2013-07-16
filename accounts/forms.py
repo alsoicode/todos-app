@@ -4,6 +4,14 @@ from django import forms
 
 class CreateAccountForm(UserCreationForm):
     username = forms.EmailField(max_length=75, label='Email')
+    honeypot = forms.CharField(required=False)
+
+    def clean_honeypot(self):
+        value = self.cleaned_data.get('honeypot')
+        if value != '':
+            raise forms.ValidationError(u'Automated form submissions'
+                'are not allowed')
+        return value
 
 
 class LoginForm(AuthenticationForm):
