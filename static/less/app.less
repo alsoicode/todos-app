@@ -1,0 +1,98 @@
+fieldset
+{
+    border: 0 none;
+}
+
+#todo-list
+{
+    li
+    {
+        .toggle
+        {
+            left: 13px;
+        }
+    }
+}
+
+#toggle-all
+{
+    left: 9px;
+}
+
+.errorlist
+{
+    padding-left: 0;
+    margin-left: 0;
+    color: #B94A48;
+
+    li
+    {
+        list-style: none;
+
+    }
+}
+
+form
+{
+    legend
+    {
+        margin: 20px 0 0 10px;
+    }
+
+    ol
+    {
+        list-style: none;
+        padding-left: 10px;
+
+        label, input
+        {
+            display: block;
+        }
+
+        label
+        {
+            font-weight: 600;
+        }
+
+        input
+        {
+            margin-bottom: 10px;
+
+            &[type="submit"]
+            {
+                margin-top: 20px;
+            }
+        }
+
+        .helptext
+        {
+            margin-bottom: 10px;
+            display: block;
+            font-style: italic;
+            color: #666;
+        }
+    }
+}
+
+body
+{
+    &.accounts
+    {
+        #todoapp
+        {
+            &:before
+            {
+                border-left: 0 none;
+                border-right: 0 none;
+            }
+        }
+    }
+}
+
+#todoapp
+{
+    h4
+    {
+        margin-left: 20px;
+    }
+}
