@@ -11,7 +11,7 @@ from todos.models import Todo
 
 @login_required
 def index(request):
-    todos = Todo.objects.all()
+    todos = Todo.objects.filter(user=request.user)
     form = TodoForm(user=request.user)
     return render(request, 'app.html', {'todos': todos, 'form': form})
 
@@ -29,7 +29,7 @@ def add_todo(request):
 
 @login_required
 def complete_todo(request):
-    todo = Todo.objects.get(pk=request.POST.get('id'))
+    todo = Todo.objects.get(pk=request.POST.get('id'), user=request.user)
     if todo.completed_on:
         todo.completed_on = None
         completed = False
@@ -43,7 +43,8 @@ def complete_todo(request):
 
 @login_required
 def clear_completed(request):
-    completed_todos = Todo.objects.filter(completed_on__isnull=False)
+    completed_todos = Todo.objects.filter(completed_on__isnull=False,
+        user=request.user)
     response = {'ids': [c.pk for c in completed_todos]}
     completed_todos.delete()
     return HttpResponse(json.dumps(response, ensure_ascii=False))
