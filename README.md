@@ -3,7 +3,7 @@ todos-app
 
 A simple "Todo" app using Django for students and faculty of OSU IT.
 
-This is a port of [TodosMVC.com](http://todomvc.com) to Django with some added Ajax and accounts.
+This is a port of [TodoMVC.com](http://todomvc.com) to Django with some added Ajax and accounts.
 
 ## accounts
 This module provides form overrides for django.contrib.auth to use an email field for the username in the create user and login forms, in addition to the url patterns and views to login, logout and create an account.
