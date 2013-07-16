@@ -3,7 +3,7 @@ todos-app
 
 A simple "Todo" app using Django for students and faculty of OSU IT.
 
-This is a port of TodosMVC.com to Django with some added Ajax and accounts.
+This is a port of [TodosMVC.com](http://todosmvc.com) to Django with some added Ajax and accounts.
 
 ## accounts
 This module provides form overrides for django.contrib.auth to use an email field for the username in the create user and login forms, in addition to the url patterns and views to login, logout and create an account.
@@ -47,7 +47,9 @@ First, you'll need to clone this repo to your local machine. Then create a SQLit
 Next you'll want to get the project dependencies installed via Pip. See: https://pypi.python.org/pypi/pip for more information on PIP, and also these instructions for installation for Python and friends:
 
 OS X: http://docs.python-guide.org/en/latest/starting/install/osx.html
+
 Windows: http://docs.python-guide.org/en/latest/starting/install/win.html
+
 Linux: http://docs.python-guide.org/en/latest/starting/install/linux.html
 
 Once you have PIP installed, you'll want to:
