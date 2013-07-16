@@ -42,7 +42,7 @@ Is django's built-in management command utility. This is used for starting up a 
 
 These are the bare-minium instructions for running this code. These instructions assume you have Python 2.6.x or higher installed on your development computer. Django 1.5.x has experimental support for Python 3, but I would recommend staying with Python 2.7.x
 
-First, you'll need to clone this repo to your local machine. Then create a SQLite database for the project to use. I would recommend using the SQLite Management Tool in Firefox. Name the database "todos.sqlite" and save it to the db folder in the project.
+First, you'll need to clone this repo to your local machine. Then create a SQLite database for the project to use. I would recommend using the [SQLite Manager Tool](https://addons.mozilla.org/en-US/firefox/addon/sqlite-manager/) in Firefox. Name the database "todos.sqlite" and save it to the db folder in the project.
 
 Next you'll want to get the project dependencies installed via Pip. See: https://pypi.python.org/pypi/pip for more information on PIP, and also these instructions for installation for Python and friends:
 
