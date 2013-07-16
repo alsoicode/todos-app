@@ -1,0 +1,23 @@
+{% extends "layouts/base.html" %}
+{% block title %} | log in{% endblock title %}
+
+{% block body_class %}accounts{% endblock body_class %}
+
+{% block header %}<h1>todos: log in</h1>{% endblock header %}
+
+{% block content %}
+    <form action="." method="post" enctype="application/x-www-form-urlencoded">
+        <fieldset>
+            <legend>Please log in to continue</legend>
+            <ol>
+                {{ form.as_ul }}
+                <li>
+                    <input type="submit" value="Log In" />
+                </li>
+            </ol>
+            {{ form.next }}
+            {% csrf_token %}
+        </fieldset>
+    </form>
+    <h4>Don&#8217;t have an account? <a href="{% url 'create_account' %}">Create One</a></h4>
+{% endblock content %}

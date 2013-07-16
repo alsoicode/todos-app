@@ -1,0 +1,23 @@
+{% extends "layouts/base.html" %}
+{% block title %} | sign up{% endblock title %}
+
+{% block body_class %}accounts{% endblock body_class %}
+
+{% block header %}<h1>todos: sign up</h1>{% endblock header %}
+
+{% block content %}
+    <form action="." method="post" enctype="application/x-www-form-urlencoded">
+        <fieldset>
+            <legend>All fields are required</legend>
+            <ol>
+                {{ form.as_ul }}
+                <li>
+                    <input type="submit" value="Create Account" />
+                </li>
+            </ol>
+            {{ form.non_field_errors }}
+            {% csrf_token %}
+        </fieldset>
+    </form>
+    <h4>Already have an account? <a href="{% url 'login' %}">Log In</a></h4>
+{% endblock content %}
