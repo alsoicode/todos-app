@@ -75,3 +75,27 @@ At this point, we should be able to run the project:
     $ python manage.py runserver
 
 This will start up an instance of the built-in Django web server running at: [http://localhost:8000](http://localhost:8000), and you should be at the login view. Since you don't have an account yet, follow the link to create an account, fill out the form, and you should be on your way to creating lots of interesting todos :)
+
+###Additional Resources for Learning Python and Django
+
+[Learn Python the Hard Way](http://learnpythonthehardway.org/book/)
+
+[The Django Book](http://djangobook.com/)
+
+[Practical Django Projects](http://www.amazon.com/Practical-Django-Projects-Experts-Development/dp/1430219386/ref=sr_1_2?ie=UTF8&qid=1374032390&sr=8-2&keywords=practical+django+projects)
+
+[Two Scoops of Django](http://www.amazon.com/Two-Scoops-Django-Best-Practices/dp/1481879707/ref=sr_1_2?s=books&ie=UTF8&qid=1374032439&sr=1-2&keywords=django+programming+2013)
+
+[Stack Overflow](http://stackoverflow.com/questions/tagged/django)
+
+This project was coded on [Ubuntu Linux 13.04](http://ubuntu.com/) using [Sublime Text 2](http://http://www.sublimetext.com/2)
+
+The Sublime Plugins that were used are:
+
+[Sublime Code Intel](https://github.com/SublimeCodeIntel/SublimeCodeIntel)
+
+[Sublime Rope](https://github.com/JulianEberius/SublimeRope)
+
+[Djaniero](https://github.com/squ1b3r/Djaneiro)
+
+[jQuery](https://github.com/mrmartineau/jQuery)
