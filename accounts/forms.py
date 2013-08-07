@@ -4,7 +4,7 @@ from django import forms
 
 class CreateAccountForm(UserCreationForm):
     username = forms.EmailField(max_length=75, label='Email')
-    honeypot = forms.CharField(required=False)
+    honeypot = forms.CharField(required=False, widget=forms.HiddenInput)
 
     def clean_honeypot(self):
         value = self.cleaned_data.get('honeypot')
