@@ -38,14 +38,12 @@ def complete_todo(request):
         todo.completed_on = datetime.now()
         completed = True
     todo.save()
-    response = {'completed': completed}
-    return JsonResponse(jsonify(response))
+    return JsonResponse(jsonify({'completed': completed}))
 
 
 @login_required
 def clear_completed(request):
-    completed_todos = Todo.objects.filter(completed_on__isnull=False,
-        user=request.user)
+    completed_todos = Todo.completed.filter(user=request.user)
     response = {'ids': [c.pk for c in completed_todos]}
     completed_todos.delete()
     return JsonResponse(jsonify(response))
