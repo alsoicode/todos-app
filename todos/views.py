@@ -5,6 +5,7 @@ from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 
 from lib.http import JsonResponse
+from lib.utils import jsonify
 from todos.forms import TodoForm
 from todos.models import Todo
 
@@ -24,7 +25,7 @@ def add_todo(request):
         response = {'id': todo.id, 'title': todo.title}
     else:
         response = form.errors_as_json()
-    return JsonResponse(json.dumps(response, ensure_ascii=False))
+    return JsonResponse(jsonify(response))
 
 
 @login_required
@@ -38,7 +39,7 @@ def complete_todo(request):
         completed = True
     todo.save()
     response = {'completed': completed}
-    return JsonResponse(json.dumps(response, ensure_ascii=False))
+    return JsonResponse(jsonify(response))
 
 
 @login_required
@@ -47,4 +48,4 @@ def clear_completed(request):
         user=request.user)
     response = {'ids': [c.pk for c in completed_todos]}
     completed_todos.delete()
-    return JsonResponse(json.dumps(response, ensure_ascii=False))
+    return JsonResponse(jsonify(response))
