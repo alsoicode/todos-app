@@ -1,10 +1,10 @@
 from datetime import datetime
 import json
 
-from django.http import HttpResponse
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 
+from lib.http import JsonResponse
 from todos.forms import TodoForm
 from todos.models import Todo
 
@@ -24,7 +24,7 @@ def add_todo(request):
         response = {'id': todo.id, 'title': todo.title}
     else:
         response = form.errors_as_json()
-    return HttpResponse(json.dumps(response, ensure_ascii=False))
+    return JsonResponse(json.dumps(response, ensure_ascii=False))
 
 
 @login_required
@@ -38,7 +38,7 @@ def complete_todo(request):
         completed = True
     todo.save()
     response = {'completed': completed}
-    return HttpResponse(json.dumps(response, ensure_ascii=False))
+    return JsonResponse(json.dumps(response, ensure_ascii=False))
 
 
 @login_required
@@ -47,4 +47,4 @@ def clear_completed(request):
         user=request.user)
     response = {'ids': [c.pk for c in completed_todos]}
     completed_todos.delete()
-    return HttpResponse(json.dumps(response, ensure_ascii=False))
+    return JsonResponse(json.dumps(response, ensure_ascii=False))
