@@ -122,7 +122,7 @@ body {
     color: inherit;
     padding: 6px;
     border: 1px solid #999;
-    box-shadow: inset 0 -1px 5px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: inset 0 -1px 5px 0 rgba(0, 0, 0, 0);
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     -ms-box-sizing: border-box;
@@ -138,7 +138,7 @@ body {
 #id_title {
     padding: 16px 16px 16px 60px;
     border: none;
-    background: rgba(0, 0, 0, 0.02);
+    background: rgba(0, 0, 0, 0);
     z-index: 2;
     box-shadow: none;
 }
@@ -155,7 +155,7 @@ label[for='toggle-all'] {
 
 #toggle-all {
     position: absolute;
-    top: -42px;
+    top: -52px;
     left: -4px;
     width: 40px;
     text-align: center;
