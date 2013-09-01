@@ -1,25 +1,24 @@
 (function($) {
     $(function() {
         // handle submitting the form via Ajax using the jQuery form plugin
+        var new_todo_form = $('#new-todo-form'),
+            activity_indicator = new_todo_form.find('.activity');
 
-        $('#new-todo-form').ajaxForm({
+        new_todo_form.ajaxForm({
             dataType: 'json',
             url: this.action,
             beforeSubmit: function(arr, form, options) {
-                form.find('.activity').show();
+                activity_indicator.show();
             },
             success: function(json, status, xhr, form)
             {
-                form.find('.activity').hide();
+                activity_indicator.hide();
 
                 if (json.errors !== undefined) {
                     process_form_errors(json, form);
                 }
                 else {
-                    var todo_html = $('#todo-template');
-
                     $('#todo-list').append('<li><div class="view"><input class="toggle" type="checkbox" value="' + json.id + '" /><label>' + json.title + '</label></div><input type="text" value="' + json.title + '" style="display: none;" /></li>');
-
                     toggle_clear_select_all();
                     remove_form_errors();
                     form.resetForm();
