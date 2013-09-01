@@ -53,6 +53,21 @@
         $('#toggle-all').click(function(e) {
             $('.toggle').trigger('click');
         });
+
+        // Show All todos
+        $('#filter-all').click(function(e) {
+            $('#todo-list li').show();
+        });
+
+        // Filter active todos
+        $('#filter-active').click(function(e) {
+            $('#todo-list').find('.completed').hide().end().find('li[class!="completed"]').show();
+        });
+
+        // Filter completed todos
+        $('#filter-completed').click(function(e) {
+            $('#todo-list').find('.completed').show().end().find('li[class!="completed"]').hide();
+        });
     });
 
     function count_todos() {

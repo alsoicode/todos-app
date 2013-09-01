@@ -9,3 +9,4 @@ form ol input{margin-bottom:10px}form ol input[type="submit"]{margin-top:20px}
 form ol .helptext{margin-bottom:10px;display:block;font-style:italic;color:#666}
 body.accounts #todoapp:before{border-left:0 none;border-right:0 none}
 #todoapp h4{margin-left:20px}
+#count-info{float:left;margin:0}
