@@ -22,6 +22,7 @@
                     toggle_clear_select_all();
                     remove_form_errors();
                     form.resetForm();
+                    set_todo_count();
                 }
             }
         });
@@ -45,6 +46,7 @@
                 });
             }, 'json').done(function() {
                 toggle_clear_select_all();
+                set_todo_count();
             });
         });
 
@@ -71,6 +73,22 @@
 
     function count_todos() {
         return $('#todo-list li').length;
+    }
+
+    function set_todo_count() {
+        var todo_count = count_todos(),
+            items = $('#count-info .items'),
+            items_text = '';
+
+        $('#count-info .number').text(todo_count);
+
+        if (todo_count === 0 || todo_count > 1) {
+            items_text = 'items';
+        }
+        else {
+            items_text = 'item';
+        }
+        items.text(items_text);
     }
 
     // show/hide any elements that are related to the count of todos

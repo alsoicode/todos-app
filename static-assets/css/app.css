@@ -1,5 +1,7 @@
 fieldset{border:0 none}
 #todo-list li .toggle{left:13px}
+#todo-list .edit form{margin:10px 0 10px 62px}
+#todo-list .edit input{font-size:24px;width:90%}
 #toggle-all{left:9px}
 .errorlist{padding-left:0;margin-left:0;color:#b94a48}.errorlist li{list-style:none}
 form legend{margin:20px 0 0 10px}
@@ -10,3 +12,4 @@ form ol .helptext{margin-bottom:10px;display:block;font-style:italic;color:#666}
 body.accounts #todoapp:before{border-left:0 none;border-right:0 none}
 #todoapp h4{margin-left:20px}
 #count-info{float:left;margin:0}
+.edit{border:0 none}

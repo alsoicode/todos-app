@@ -22,14 +22,13 @@
                         <input class="toggle" type="checkbox" {% if todo.completed_on %}checked="checked"{% endif %} value="{{ todo.id }}" />
                         <label>{{ todo }}</label>
                     </div>
-                    <input type="text" value="{{ todo }}" style="display: none;" />
                 </li>
                 {% endfor %}
             </ul>
         </section>
         <footer id="footer">
             <div style="{% if not todos %}display: none;{% endif %}">
-                <p id="count-info"><span class="number">{{ todos|length }}</span> <span class="objects">item{{ todos|pluralize }}</span> left</p>
+                <p id="count-info"><span class="number">{{ todos|length }}</span> <span class="items">item{{ todos|pluralize }}</span> left</p>
                 <ul id="filters">
                     <li>
                         <a href="#" id="filter-all" class="selected">All</a>
