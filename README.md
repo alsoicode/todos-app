@@ -88,7 +88,7 @@ This will start up an instance of the built-in Django web server running at: [ht
 
 [Stack Overflow](http://stackoverflow.com/questions/tagged/django)
 
-This project was coded on [Ubuntu Linux 13.04](http://ubuntu.com/) using [Sublime Text 2](http://http://www.sublimetext.com/2)
+This project was coded on [Linux Mint](http://ubuntu.com/) using [Sublime Text 3](http://http://www.sublimetext.com/3)
 
 The Sublime Plugins that were used are:
 
