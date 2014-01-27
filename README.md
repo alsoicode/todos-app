@@ -1,7 +1,7 @@
 todos-app
 =========
 
-A simple "Todo" app using Django for students and faculty of OSU IT.
+A simple "Todo" app using Django.
 
 This is a port of [TodoMVC.com](http://todomvc.com) to Django with some added Ajax and accounts.
 
@@ -92,9 +92,7 @@ This project was coded on [Ubuntu Linux 13.04](http://ubuntu.com/) using [Sublim
 
 The Sublime Plugins that were used are:
 
-[Sublime Code Intel](https://github.com/SublimeCodeIntel/SublimeCodeIntel)
-
-[Sublime Rope](https://github.com/JulianEberius/SublimeRope)
+[Sublime Jedi](https://github.com/srusskih/SublimeJEDI)
 
 [Djaniero](https://github.com/squ1b3r/Djaneiro)
 
